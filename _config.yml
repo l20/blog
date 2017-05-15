@@ -7,8 +7,8 @@ paginate: 5
 language: 'en-uk'
 
 # Website info
-name: '花刀的个人主页'
-description: "这里记录我个人的日常学习笔记"
+name: '花刀'
+description: "青州桃花山左近，有一座鸡鸣山，山上聚集着数百强人，为头一个大王，叫做花刀孟福通，本是蒲州解良人氏，和白花蛇杨春一乡里人，身高八尺，武艺精通。————出自《水浒传》十六位猛将之一"
 
 # Author's info
 author: 'Casper McFadden'
