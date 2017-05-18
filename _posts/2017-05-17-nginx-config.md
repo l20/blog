@@ -17,7 +17,7 @@ logo: 'assets/images/ghost.png'
 > 在nginx目录的config文件夹下,比如```/usr/local/nginx/config```。
 
 #### 配置文件的结构
-===
+---
 
 * __全局块__：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。
 
