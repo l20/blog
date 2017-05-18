@@ -12,6 +12,8 @@
 # others
 *.swp
 
+post.bak/
+
 # site build
 *.gem
 *.rbc
