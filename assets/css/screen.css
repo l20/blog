@@ -954,9 +954,9 @@ body:not(.post-template) .post-title {
     font-size: 0.9em;
     line-height: 1.7em;
 
-    // 文字截取
-    -webkit-line-clamp: 3!important;
+    /*  文字截取 */
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3!important;
     overflow: hidden;
     display: -webkit-box;
 }
