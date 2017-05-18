@@ -1,4 +1,3 @@
-
 ---
 layout: post
 cover: 'assets/images/cover7.jpg'
@@ -10,7 +9,6 @@ categories: 'casper'
 navigation: True
 logo: 'assets/images/ghost.png'
 ---
-
 
 ### nginx.config文件
 
