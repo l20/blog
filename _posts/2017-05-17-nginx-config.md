@@ -1,4 +1,4 @@
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=436514312&auto=0&height=66"></iframe>
+
 
 ---
 layout: post
@@ -19,6 +19,8 @@ logo: 'assets/images/ghost.png'
 
 #### 配置文件的结构
 ---
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=436514312&auto=0&height=66"></iframe>
 
 * __全局块__：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。
 
