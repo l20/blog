@@ -1,31 +1,7 @@
-# OS X
 .DS_Store
-
-# Jekyll build
-/_site/
-.jekyll-metadata
-#Gemfile.lock
-
-# webstorm
-.idea/
-
-# others
-*.swp
-
-post.bak/
-
-# site build
-*.gem
-*.rbc
-.bundle
-.config
-coverage
-InstalledFiles
-lib/bundler/man
-pkg
-rdoc
-spec/reports
-test/tmp
-test/version_tmp
-tmp
-vendor
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
