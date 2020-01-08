@@ -10,13 +10,14 @@
   <meta name="description" content="vue-cli脚手架分析前言 vue脚手架是帮助用户快速搭建vue模板化、模块化开发的一套命令程序，可根据需要生成相应的模板，用户可以直接在基础模板上开发，省去了用户自搭模板的工序提高开发效率。本文不教授如何使用脚手架搭建项目，旨在分析脚手架然后实现自己的脚手架搭建模板。 开始要分析他的实现原理可以到git仓库上把源码clone下来并安装依赖。 123456# 克隆仓库$ git clone ht">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2017-05-22-vue-cli">
-<meta property="og:url" content="http://yoursite.com/2020/01/08/2017-05-22-vue-cli/index.html">
+<meta property="og:url" content="https://l20.github.io/blog/2020/01/08/2017-05-22-vue-cli/index.html">
 <meta property="og:site_name" content="Loksin">
 <meta property="og:description" content="vue-cli脚手架分析前言 vue脚手架是帮助用户快速搭建vue模板化、模块化开发的一套命令程序，可根据需要生成相应的模板，用户可以直接在基础模板上开发，省去了用户自搭模板的工序提高开发效率。本文不教授如何使用脚手架搭建项目，旨在分析脚手架然后实现自己的脚手架搭建模板。 开始要分析他的实现原理可以到git仓库上把源码clone下来并安装依赖。 123456# 克隆仓库$ git clone ht">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-01-08T06:49:43.067Z">
-<meta property="article:modified_time" content="2020-01-08T06:49:43.067Z">
+<meta property="article:published_time" content="2020-01-08T07:04:59.437Z">
+<meta property="article:modified_time" content="2020-01-08T07:04:59.437Z">
 <meta property="article:author" content="Loksin">
+<meta property="article:tag" content="loksin">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Loksin" type="application/atom+xml">
@@ -43,6 +44,10 @@
         <a href="/" id="logo">Loksin</a>
       </h1>
       
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Loksin&#39;s space</a>
+        </h2>
+      
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
@@ -60,7 +65,7 @@
         <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://l20.github.io/blog"></form>
       </div>
     </div>
   </div>
@@ -69,7 +74,7 @@
         <section id="main"><article id="post-2017-05-22-vue-cli" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/01/08/2017-05-22-vue-cli/" class="article-date">
-  <time datetime="2020-01-08T06:49:43.067Z" itemprop="datePublished">2020-01-08</time>
+  <time datetime="2020-01-08T07:04:59.437Z" itemprop="datePublished">2020-01-08</time>
 </a>
     
   </div>
@@ -103,7 +108,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/08/2017-05-22-vue-cli/" data-id="ck54y0pov00062krffa78gdba" class="article-share-link">Share</a>
+      <a data-url="https://l20.github.io/blog/2020/01/08/2017-05-22-vue-cli/" data-id="ck54ykd6t00061jrx7fuf86pz" class="article-share-link">Share</a>
       
       
     </footer>
