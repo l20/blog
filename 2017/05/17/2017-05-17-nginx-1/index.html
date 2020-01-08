@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>nginx学习笔记——架构 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简介 nginx是一个高性能的HTTP和反向代理服务器，也是一个IMAP&#x2F;POP3&#x2F;SMTP服务器。一般在Unix系统上运行。(摘自百度百科)  架构  1.nginx启动后，在unix系统中会以daemon的方式在后台运行,,这些后台进程包含一个master进程和多个worker进程。2.nginx支持多线程和多进程方式，主流是多进程（nginx的默认方式）。3.master进程主要用来管理wo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx学习笔记——架构">
+<meta property="og:url" content="http://yoursite.com/2017/05/17/2017-05-17-nginx-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="简介 nginx是一个高性能的HTTP和反向代理服务器，也是一个IMAP&#x2F;POP3&#x2F;SMTP服务器。一般在Unix系统上运行。(摘自百度百科)  架构  1.nginx启动后，在unix系统中会以daemon的方式在后台运行,,这些后台进程包含一个master进程和多个worker进程。2.nginx支持多线程和多进程方式，主流是多进程（nginx的默认方式）。3.master进程主要用来管理wo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.alicdn.com/imgextra/i4/690341282/TB2fc3pXmvHfKJjSZFPXXbttpXa_!!690341282.png">
+<meta property="article:published_time" content="2017-05-17T17:31:00.000Z">
+<meta property="article:modified_time" content="2020-01-08T06:17:35.739Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="IT 前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.alicdn.com/imgextra/i4/690341282/TB2fc3pXmvHfKJjSZFPXXbttpXa_!!690341282.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-05-17-nginx-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/2017-05-17-nginx-1/" class="article-date">
+  <time datetime="2017-05-17T17:31:00.000Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/casper/">casper</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nginx学习笔记——架构
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p><a href="http://baike.baidu.com/link?url=h2rNmCua5QFugIIfSwQBILZViXrI3KBhUCatiFSTAYZRmxmzuySxL_HwwZaELBNoA4gSxhK-PrGYO2UzbF4lqK" target="_blank" rel="noopener">nginx</a>是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。一般在Unix系统上运行。(摘自百度百科)</p>
+</blockquote>
+<h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><img src="https://img.alicdn.com/imgextra/i4/690341282/TB2fc3pXmvHfKJjSZFPXXbttpXa_!!690341282.png" alt=" chapter-2-1.png"/>
+
+<h5 id="1-nginx启动后，在unix系统中会以daemon的方式在后台运行-这些后台进程包含一个master进程和多个worker进程。"><a href="#1-nginx启动后，在unix系统中会以daemon的方式在后台运行-这些后台进程包含一个master进程和多个worker进程。" class="headerlink" title="1.nginx启动后，在unix系统中会以daemon的方式在后台运行,,这些后台进程包含一个master进程和多个worker进程。"></a>1.nginx启动后，在unix系统中会以<a href="http://www.cnblogs.com/li-hao/archive/2013/02/22/2922120.html" target="_blank" rel="noopener">daemon</a>的方式在后台运行,,这些后台进程包含一个master进程和多个worker进程。</h5><h5 id="2-nginx支持多线程和多进程方式，主流是多进程（nginx的默认方式）。"><a href="#2-nginx支持多线程和多进程方式，主流是多进程（nginx的默认方式）。" class="headerlink" title="2.nginx支持多线程和多进程方式，主流是多进程（nginx的默认方式）。"></a>2.nginx支持多线程和多进程方式，主流是多进程（nginx的默认方式）。</h5><h5 id="3-master进程主要用来管理worker进程，接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态。worker退出会自动启动新的worker进程。一个请求，只可能在一个worker进程中处理，一个worker进程，不可能处理其它进程的请求。"><a href="#3-master进程主要用来管理worker进程，接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态。worker退出会自动启动新的worker进程。一个请求，只可能在一个worker进程中处理，一个worker进程，不可能处理其它进程的请求。" class="headerlink" title="3.master进程主要用来管理worker进程，接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态。worker退出会自动启动新的worker进程。一个请求，只可能在一个worker进程中处理，一个worker进程，不可能处理其它进程的请求。"></a>3.master进程主要用来管理worker进程，接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态。worker退出会自动启动新的worker进程。一个请求，只可能在一个worker进程中处理，一个worker进程，不可能处理其它进程的请求。</h5><h5 id="4-worker进程的个数是可以设置的，一般我们会设置与机器cpu核数一致。"><a href="#4-worker进程的个数是可以设置的，一般我们会设置与机器cpu核数一致。" class="headerlink" title="4.worker进程的个数是可以设置的，一般我们会设置与机器cpu核数一致。"></a>4.worker进程的个数是可以设置的，一般我们会设置与机器cpu核数一致。</h5><h5 id="5-老式操作nginx方式，用户可以给master进程发型不同类型的信号，让master进程来管理worker进程干不同的事情；新的操作方式，nginx在0-8版本之后，引入了一系列命令行参数，来方便管理，比如，-nginx-s-reload，就是来重启nginx。"><a href="#5-老式操作nginx方式，用户可以给master进程发型不同类型的信号，让master进程来管理worker进程干不同的事情；新的操作方式，nginx在0-8版本之后，引入了一系列命令行参数，来方便管理，比如，-nginx-s-reload，就是来重启nginx。" class="headerlink" title="5.老式操作nginx方式，用户可以给master进程发型不同类型的信号，让master进程来管理worker进程干不同的事情；新的操作方式，nginx在0.8版本之后，引入了一系列命令行参数，来方便管理，比如，./nginx -s reload，就是来重启nginx。"></a>5.老式操作nginx方式，用户可以给master进程发型不同类型的信号，让master进程来管理worker进程干不同的事情；新的操作方式，nginx在0.8版本之后，引入了一系列命令行参数，来方便管理，比如，./nginx -s reload，就是来重启nginx。</h5><h5 id="6-master进程在接到信号后，会先重新加载配置文件，然后再启动新的worker进程，并向所有老的worker进程发送信号，告诉他们退出。若老的进程有未处理完的任务则先等任务处理完成才退出，进程接收到信号之后不在接收任何请求任务。"><a href="#6-master进程在接到信号后，会先重新加载配置文件，然后再启动新的worker进程，并向所有老的worker进程发送信号，告诉他们退出。若老的进程有未处理完的任务则先等任务处理完成才退出，进程接收到信号之后不在接收任何请求任务。" class="headerlink" title="6.master进程在接到信号后，会先重新加载配置文件，然后再启动新的worker进程，并向所有老的worker进程发送信号，告诉他们退出。若老的进程有未处理完的任务则先等任务处理完成才退出，进程接收到信号之后不在接收任何请求任务。"></a>6.master进程在接到信号后，会先重新加载配置文件，然后再启动新的worker进程，并向所有老的worker进程发送信号，告诉他们退出。若老的进程有未处理完的任务则先等任务处理完成才退出，进程接收到信号之后不在接收任何请求任务。</h5><h5 id="7-worker进程处理请求流程："><a href="#7-worker进程处理请求流程：" class="headerlink" title="7.worker进程处理请求流程："></a>7.worker进程处理请求流程：</h5><ul>
+<li><input checked="" disabled="" type="checkbox"> ①建立好需要listen的socket（listenfd文件描述符）。</li>
+<li><input checked="" disabled="" type="checkbox"> ②master  进程fork多个worker进程。</li>
+<li><input checked="" disabled="" type="checkbox"> ③worker进程的listenfd变为可读。</li>
+<li><input checked="" disabled="" type="checkbox"> ④所有worker进程抢占互斥锁<a href="http://www.linuxidc.com/Linux/2012-01/50917p6.htm" target="_blank" rel="noopener">accept_mutex</a>。</li>
+<li><input checked="" disabled="" type="checkbox"> ⑤抢到的那个进程注册listenfd读事件，在读事件里调用accept接受该连接。</li>
+<li><input checked="" disabled="" type="checkbox"> ⑥读取请求，解析请求，处理请求，产生数据后，再返回给客户端。</li>
+<li><input checked="" disabled="" type="checkbox"> ⑦断开链接。</li>
+</ul>
+<p>（注：一个请求，完全由worker进程来处理，而且只在一个worker进程中处理。）</p>
+<h5 id="8-nginx采用了异步非阻塞的方式来处理请求（网络事件），有体到系统调用就是像select-poll-epoll-kqueue这样的系统调用。关IO多路复用的解释请点开。"><a href="#8-nginx采用了异步非阻塞的方式来处理请求（网络事件），有体到系统调用就是像select-poll-epoll-kqueue这样的系统调用。关IO多路复用的解释请点开。" class="headerlink" title="8.nginx采用了异步非阻塞的方式来处理请求（网络事件），有体到系统调用就是像select/poll/epoll/kqueue这样的系统调用。关IO多路复用的解释请点开。"></a>8.nginx采用了异步非阻塞的方式来处理请求（网络事件），有体到系统调用就是像select/poll/epoll/kqueue这样的系统调用。关IO<a href="https://www.zhihu.com/question/32163005" target="_blank" rel="noopener">多路复用</a>的解释请点开。</h5><h5 id="9-事件通常有三种类型，网络事件、信号、定时器-网络事件通过异步非阻塞来解决-8中-。信号，若nginx正在等待事件（epoll-wait时），如果收到信号，在信号处理函数处理完后，epoll-wait会返回错误，然后程序可再次进入epoll-wait调用。定时器，epoll-wait函数在调用的时候可以设置一个超时时间nginx借助这个超时时间来实现定时器，当没有事件产生，也没有中断信号时，epoll-wait会超时，也就是说，定时器事件到了。之后，nginx会检查所有的超时事件，将他们的状态设置为超时，然后再去处理网络事件，因此在处理网络事件的回调函数时，通常做的第一个事情就是判断超时，然后再去处理网络事件。"><a href="#9-事件通常有三种类型，网络事件、信号、定时器-网络事件通过异步非阻塞来解决-8中-。信号，若nginx正在等待事件（epoll-wait时），如果收到信号，在信号处理函数处理完后，epoll-wait会返回错误，然后程序可再次进入epoll-wait调用。定时器，epoll-wait函数在调用的时候可以设置一个超时时间nginx借助这个超时时间来实现定时器，当没有事件产生，也没有中断信号时，epoll-wait会超时，也就是说，定时器事件到了。之后，nginx会检查所有的超时事件，将他们的状态设置为超时，然后再去处理网络事件，因此在处理网络事件的回调函数时，通常做的第一个事情就是判断超时，然后再去处理网络事件。" class="headerlink" title="9.事件通常有三种类型，网络事件、信号、定时器,网络事件通过异步非阻塞来解决(8中)。信号，若nginx正在等待事件（epoll_wait时），如果收到信号，在信号处理函数处理完后，epoll_wait会返回错误，然后程序可再次进入epoll_wait调用。定时器，epoll_wait函数在调用的时候可以设置一个超时时间nginx借助这个超时时间来实现定时器，当没有事件产生，也没有中断信号时，epoll_wait会超时，也就是说，定时器事件到了。之后，nginx会检查所有的超时事件，将他们的状态设置为超时，然后再去处理网络事件，因此在处理网络事件的回调函数时，通常做的第一个事情就是判断超时，然后再去处理网络事件。"></a>9.事件通常有三种类型，网络事件、信号、定时器,网络事件通过异步非阻塞来解决(8中)。信号，若nginx正在等待事件（epoll_wait时），如果收到信号，在信号处理函数处理完后，epoll_wait会返回错误，然后程序可再次进入epoll_wait调用。定时器，epoll_wait函数在调用的时候可以设置一个超时时间nginx借助这个超时时间来实现定时器，当没有事件产生，也没有中断信号时，epoll_wait会超时，也就是说，定时器事件到了。之后，nginx会检查所有的超时事件，将他们的状态设置为超时，然后再去处理网络事件，因此在处理网络事件的回调函数时，通常做的第一个事情就是判断超时，然后再去处理网络事件。</h5><h5 id="事件处理模型："><a href="#事件处理模型：" class="headerlink" title="事件处理模型："></a>事件处理模型：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">while (1) &#123;</span><br><span class="line">    for (t in run_tasks) &#123; &#x2F;* 任务队列 *&#x2F;</span><br><span class="line">        t.handler();</span><br><span class="line">    &#125;</span><br><span class="line">    update_time(&amp;now);</span><br><span class="line">    timeout &#x3D; ETERNITY;</span><br><span class="line">    for (t in wait_tasks) &#123; &#x2F;* 循环处理等待队列 *&#x2F;</span><br><span class="line">        if (t.time &lt;&#x3D; now) &#123;    &#x2F;&#x2F; 判断超时</span><br><span class="line">            t.timeout_handler(); &#x2F;&#x2F; 处理网络事件 </span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            timeout &#x3D; t.time - now;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    nevents &#x3D; poll_function(events, timeout);</span><br><span class="line">    for (i in nevents) &#123;</span><br><span class="line">        task t;</span><br><span class="line">        if (events[i].type &#x3D;&#x3D; READ) &#123;</span><br><span class="line">            t.handler &#x3D; read_handler;</span><br><span class="line">        &#125; else &#123; &#x2F;* events[i].type &#x3D;&#x3D; WRITE *&#x2F;</span><br><span class="line">            t.handler &#x3D; write_handler;</span><br><span class="line">        &#125;</span><br><span class="line">        run_tasks_add(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/2017-05-17-nginx-1/" data-id="ck54wvez800010us3essx4jcg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IT-%E5%89%8D%E7%AB%AF/" rel="tag">IT 前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/18/2017-05-17-nginx-config/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          nginx.config配置文件说明
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/17/2017-05-17-nginx-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">nginx学习笔记——基础概念</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/casper/">casper</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IT/" rel="tag">IT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IT-%E5%89%8D%E7%AB%AF/" rel="tag">IT 前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IT/" style="font-size: 10px;">IT</a> <a href="/tags/IT-%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">IT 前端</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/08/2017-05-22-vue-cli/">2017-05-22-vue-cli</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/18/2017-05-17-nginx-config/">nginx.config配置文件说明</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/17/2017-05-17-nginx-1/">nginx学习笔记——架构</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/17/2017-05-17-nginx-2/">nginx学习笔记——基础概念</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
