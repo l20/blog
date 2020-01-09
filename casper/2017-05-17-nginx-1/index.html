@@ -2,13 +2,13 @@
 <html lang="en">
 
 <!-- Head tag -->
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
+    <meta name="description" content>
+    <meta name="keyword" content>
     <link rel="shortcut icon" href="/blog/img/ironman-draw.png">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -21,39 +21,23 @@
     <link rel="canonical" href="https://l20.github.io/blog/blog/casper/2017-05-17-nginx-1/">
 
     <!-- Bootstrap Core CSS -->
-    
-<link rel="stylesheet" href="/blog/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
 
     <!-- Custom CSS --> 
-    
-<link rel="stylesheet" href="/blog/css/beantech.min.css">
+    <link rel="stylesheet" href="/blog/css/beantech.min.css">
 
-
-    
-<link rel="stylesheet" href="/blog/css/donate.css">
-
+    <link rel="stylesheet" href="/blog/css/donate.css">
     
     <!-- Pygments Highlight CSS -->
-    
-<link rel="stylesheet" href="/blog/css/highlight.css">
+    <link rel="stylesheet" href="/blog/css/highlight.css">
 
+    <link rel="stylesheet" href="/blog/css/widget.css">
 
-    
-<link rel="stylesheet" href="/blog/css/widget.css">
+    <link rel="stylesheet" href="/blog/css/rocket.css">
 
+    <link rel="stylesheet" href="/blog/css/signature.css">
 
-    
-<link rel="stylesheet" href="/blog/css/rocket.css">
-
-
-    
-<link rel="stylesheet" href="/blog/css/signature.css">
-
-
-    
-<link rel="stylesheet" href="/blog/css/toc.css">
-
+    <link rel="stylesheet" href="/blog/css/toc.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -77,7 +61,7 @@
 
     <!-- ga & ba script hoook -->
     <script></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+</head>
 
 
 <!-- hack iOS CSS :active style -->
@@ -104,7 +88,7 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/blog/tags/#IT 前端" title="IT 前端">IT 前端</a>
+                              <a class="tag" href="/blog/tags/#IT" title="IT">IT</a>
                             
                         </div>
                         <h1>nginx学习笔记——架构</h1>
@@ -151,6 +135,30 @@
                         <a href="/blog/">Home</a>
                     </li>
 
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/tags/">Tags</a>
+                        </li>
+                        
                     
                     
                 </ul>
@@ -204,22 +212,33 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3><span id="简介">简介</span></h3><blockquote>
+                <h3><span id="简介">简介</span></h3>
+<blockquote>
 <p><a href="http://baike.baidu.com/link?url=h2rNmCua5QFugIIfSwQBILZViXrI3KBhUCatiFSTAYZRmxmzuySxL_HwwZaELBNoA4gSxhK-PrGYO2UzbF4lqK" target="_blank" rel="noopener">nginx</a>是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。一般在Unix系统上运行。(摘自百度百科)</p>
 </blockquote>
-<h3><span id="架构">架构</span></h3><img src="https://img.alicdn.com/imgextra/i4/690341282/TB2fc3pXmvHfKJjSZFPXXbttpXa_!!690341282.png" alt=" chapter-2-1.png">
-
-<h5><span id="1nginx启动后在unix系统中会以daemon的方式在后台运行这些后台进程包含一个master进程和多个worker进程">1.nginx启动后，在unix系统中会以的方式在后台运行,,这些后台进程包含一个master进程和多个worker进程。</span></h5><h5><span id="2nginx支持多线程和多进程方式主流是多进程nginx的默认方式">2.nginx支持多线程和多进程方式，主流是多进程（nginx的默认方式）。</span></h5><h5><span id="3master进程主要用来管理worker进程接收来自外界的信号向各worker进程发送信号监控worker进程的运行状态-worker退出会自动启动新的worker进程-一个请求只可能在一个worker进程中处理一个worker进程不可能处理其它进程的请求">3.master进程主要用来管理worker进程，接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态。worker退出会自动启动新的worker进程。一个请求，只可能在一个worker进程中处理，一个worker进程，不可能处理其它进程的请求。</span></h5><h5><span id="4worker进程的个数是可以设置的一般我们会设置与机器cpu核数一致">4.worker进程的个数是可以设置的，一般我们会设置与机器cpu核数一致。</span></h5><h5><span id="5老式操作nginx方式用户可以给master进程发型不同类型的信号让master进程来管理worker进程干不同的事情新的操作方式nginx在08版本之后引入了一系列命令行参数来方便管理比如nginx-s-reload就是来重启nginx">5.老式操作nginx方式，用户可以给master进程发型不同类型的信号，让master进程来管理worker进程干不同的事情；新的操作方式，nginx在0.8版本之后，引入了一系列命令行参数，来方便管理，比如，./nginx -s reload，就是来重启nginx。</span></h5><h5><span id="6master进程在接到信号后会先重新加载配置文件然后再启动新的worker进程并向所有老的worker进程发送信号告诉他们退出-若老的进程有未处理完的任务则先等任务处理完成才退出进程接收到信号之后不在接收任何请求任务">6.master进程在接到信号后，会先重新加载配置文件，然后再启动新的worker进程，并向所有老的worker进程发送信号，告诉他们退出。若老的进程有未处理完的任务则先等任务处理完成才退出，进程接收到信号之后不在接收任何请求任务。</span></h5><h5><span id="7worker进程处理请求流程">7.worker进程处理请求流程：</span></h5><ul>
-<li><input checked disabled type="checkbox"> ①建立好需要listen的socket（listenfd文件描述符）。</li>
-<li><input checked disabled type="checkbox"> ②master  进程fork多个worker进程。</li>
-<li><input checked disabled type="checkbox"> ③worker进程的listenfd变为可读。</li>
-<li><input checked disabled type="checkbox"> ④所有worker进程抢占互斥锁<a href="http://www.linuxidc.com/Linux/2012-01/50917p6.htm" target="_blank" rel="noopener">accept_mutex</a>。</li>
-<li><input checked disabled type="checkbox"> ⑤抢到的那个进程注册listenfd读事件，在读事件里调用accept接受该连接。</li>
-<li><input checked disabled type="checkbox"> ⑥读取请求，解析请求，处理请求，产生数据后，再返回给客户端。</li>
-<li><input checked disabled type="checkbox"> ⑦断开链接。</li>
+<h3><span id="架构">架构</span></h3>
+<img src="https://img.alicdn.com/imgextra/i4/690341282/TB2fc3pXmvHfKJjSZFPXXbttpXa_!!690341282.png" alt=" chapter-2-1.png">
+<h5><span id="1nginx启动后在unix系统中会以daemon的方式在后台运行这些后台进程包含一个master进程和多个worker进程">1.nginx启动后，在unix系统中会以的方式在后台运行,这些后台进程包含一个master进程和多个worker进程。</span></h5>
+<h5><span id="2nginx支持多线程和多进程方式主流是多进程nginx的默认方式">2.nginx支持多线程和多进程方式，主流是多进程（nginx的默认方式）。</span></h5>
+<h5><span id="3master进程主要用来管理worker进程接收来自外界的信号向各worker进程发送信号监控worker进程的运行状态-worker退出会自动启动新的worker进程-一个请求只可能在一个worker进程中处理一个worker进程不可能处理其它进程的请求">3.master进程主要用来管理worker进程，接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态。worker退出会自动启动新的worker进程。一个请求，只可能在一个worker进程中处理，一个worker进程，不可能处理其它进程的请求。</span></h5>
+<h5><span id="4worker进程的个数是可以设置的一般我们会设置与机器cpu核数一致">4.worker进程的个数是可以设置的，一般我们会设置与机器cpu核数一致。</span></h5>
+<h5><span id="5老式操作nginx方式用户可以给master进程发型不同类型的信号让master进程来管理worker进程干不同的事情新的操作方式nginx在08版本之后引入了一系列命令行参数来方便管理比如nginx-s-reload就是来重启nginx">5.老式操作nginx方式，用户可以给master进程发型不同类型的信号，让master进程来管理worker进程干不同的事情；新的操作方式，nginx在0.8版本之后，引入了一系列命令行参数，来方便管理，比如，./nginx -s reload，就是来重启nginx。</span></h5>
+<h5><span id="6master进程在接到信号后会先重新加载配置文件然后再启动新的worker进程并向所有老的worker进程发送信号告诉他们退出-若老的进程有未处理完的任务则先等任务处理完成才退出进程接收到信号之后不在接收任何请求任务">6.master进程在接到信号后，会先重新加载配置文件，然后再启动新的worker进程，并向所有老的worker进程发送信号，告诉他们退出。若老的进程有未处理完的任务则先等任务处理完成才退出，进程接收到信号之后不在接收任何请求任务。</span></h5>
+<h5><span id="7worker进程处理请求流程">7.worker进程处理请求流程：</span></h5>
+<ul>
+<li>[x] ①建立好需要listen的socket（listenfd文件描述符）。</li>
+<li>[x] ②master  进程fork多个worker进程。</li>
+<li>[x] ③worker进程的listenfd变为可读。</li>
+<li>[x] ④所有worker进程抢占互斥锁<a href="http://www.linuxidc.com/Linux/2012-01/50917p6.htm" target="_blank" rel="noopener">accept_mutex</a>。</li>
+<li>[x] ⑤抢到的那个进程注册listenfd读事件，在读事件里调用accept接受该连接。</li>
+<li>[x] ⑥读取请求，解析请求，处理请求，产生数据后，再返回给客户端。</li>
+<li>[x] ⑦断开链接。</li>
 </ul>
 <p>（注：一个请求，完全由worker进程来处理，而且只在一个worker进程中处理。）</p>
-<h5><span id="8nginx采用了异步非阻塞的方式来处理请求网络事件有体到系统调用就是像selectpollepollkqueue这样的系统调用-关io多路复用的解释请点开">8.nginx采用了异步非阻塞的方式来处理请求（网络事件），有体到系统调用就是像select/poll/epoll/kqueue这样的系统调用。关IO的解释请点开。</span></h5><h5><span id="9事件通常有三种类型网络事件-信号-定时器网络事件通过异步非阻塞来解决8中-信号若nginx正在等待事件epoll_wait时如果收到信号在信号处理函数处理完后epoll_wait会返回错误然后程序可再次进入epoll_wait调用-定时器epoll_wait函数在调用的时候可以设置一个超时时间nginx借助这个超时时间来实现定时器当没有事件产生也没有中断信号时epoll_wait会超时也就是说定时器事件到了-之后nginx会检查所有的超时事件将他们的状态设置为超时然后再去处理网络事件因此在处理网络事件的回调函数时通常做的第一个事情就是判断超时然后再去处理网络事件">9.事件通常有三种类型，网络事件、信号、定时器,网络事件通过异步非阻塞来解决(8中)。信号，若nginx正在等待事件（epoll_wait时），如果收到信号，在信号处理函数处理完后，epoll_wait会返回错误，然后程序可再次进入epoll_wait调用。定时器，epoll_wait函数在调用的时候可以设置一个超时时间nginx借助这个超时时间来实现定时器，当没有事件产生，也没有中断信号时，epoll_wait会超时，也就是说，定时器事件到了。之后，nginx会检查所有的超时事件，将他们的状态设置为超时，然后再去处理网络事件，因此在处理网络事件的回调函数时，通常做的第一个事情就是判断超时，然后再去处理网络事件。</span></h5><h5><span id="事件处理模型">事件处理模型：</span></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">while (1) &#123;</span><br><span class="line">    for (t in run_tasks) &#123; &#x2F;* 任务队列 *&#x2F;</span><br><span class="line">        t.handler();</span><br><span class="line">    &#125;</span><br><span class="line">    update_time(&amp;now);</span><br><span class="line">    timeout &#x3D; ETERNITY;</span><br><span class="line">    for (t in wait_tasks) &#123; &#x2F;* 循环处理等待队列 *&#x2F;</span><br><span class="line">        if (t.time &lt;&#x3D; now) &#123;    &#x2F;&#x2F; 判断超时</span><br><span class="line">            t.timeout_handler(); &#x2F;&#x2F; 处理网络事件 </span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            timeout &#x3D; t.time - now;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    nevents &#x3D; poll_function(events, timeout);</span><br><span class="line">    for (i in nevents) &#123;</span><br><span class="line">        task t;</span><br><span class="line">        if (events[i].type &#x3D;&#x3D; READ) &#123;</span><br><span class="line">            t.handler &#x3D; read_handler;</span><br><span class="line">        &#125; else &#123; &#x2F;* events[i].type &#x3D;&#x3D; WRITE *&#x2F;</span><br><span class="line">            t.handler &#x3D; write_handler;</span><br><span class="line">        &#125;</span><br><span class="line">        run_tasks_add(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5><span id="8nginx采用了异步非阻塞的方式来处理请求网络事件有体到系统调用就是像selectpollepollkqueue这样的系统调用-关io多路复用的解释请点开">8.nginx采用了异步非阻塞的方式来处理请求（网络事件），有体到系统调用就是像select/poll/epoll/kqueue这样的系统调用。关IO的解释请点开。</span></h5>
+<h5><span id="9事件通常有三种类型网络事件-信号-定时器网络事件通过异步非阻塞来解决8中-信号若nginx正在等待事件epoll_wait时如果收到信号在信号处理函数处理完后epoll_wait会返回错误然后程序可再次进入epoll_wait调用-定时器epoll_wait函数在调用的时候可以设置一个超时时间nginx借助这个超时时间来实现定时器当没有事件产生也没有中断信号时epoll_wait会超时也就是说定时器事件到了-之后nginx会检查所有的超时事件将他们的状态设置为超时然后再去处理网络事件因此在处理网络事件的回调函数时通常做的第一个事情就是判断超时然后再去处理网络事件">9.事件通常有三种类型，网络事件、信号、定时器,网络事件通过异步非阻塞来解决(8中)。信号，若nginx正在等待事件（epoll_wait时），如果收到信号，在信号处理函数处理完后，epoll_wait会返回错误，然后程序可再次进入epoll_wait调用。定时器，epoll_wait函数在调用的时候可以设置一个超时时间nginx借助这个超时时间来实现定时器，当没有事件产生，也没有中断信号时，epoll_wait会超时，也就是说，定时器事件到了。之后，nginx会检查所有的超时事件，将他们的状态设置为超时，然后再去处理网络事件，因此在处理网络事件的回调函数时，通常做的第一个事情就是判断超时，然后再去处理网络事件。</span></h5>
+<h5><span id="事件处理模型">事件处理模型：</span></h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">while (1) &#123;</span><br><span class="line">    for (t in run_tasks) &#123; /* 任务队列 */</span><br><span class="line">        t.handler();</span><br><span class="line">    &#125;</span><br><span class="line">    update_time(&amp;now);</span><br><span class="line">    timeout = ETERNITY;</span><br><span class="line">    for (t in wait_tasks) &#123; /* 循环处理等待队列 */</span><br><span class="line">        if (t.time &lt;= now) &#123;    // 判断超时</span><br><span class="line">            t.timeout_handler(); // 处理网络事件 </span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            timeout = t.time - now;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    nevents = poll_function(events, timeout);</span><br><span class="line">    for (i in nevents) &#123;</span><br><span class="line">        task t;</span><br><span class="line">        if (events[i].type == READ) &#123;</span><br><span class="line">            t.handler = read_handler;</span><br><span class="line">        &#125; else &#123; /* events[i].type == WRITE */</span><br><span class="line">            t.handler = write_handler;</span><br><span class="line">        &#125;</span><br><span class="line">        run_tasks_add(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
 
@@ -291,7 +310,7 @@
                     <h5><a href="/blog/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/blog/tags/#IT 前端" title="IT 前端">IT 前端</a>
+                          <a class="tag" href="/blog/tags/#IT" title="IT">IT</a>
                         
                     </div>
                 </section>
@@ -404,15 +423,15 @@
                 <p class="copyright text-muted">
                     Copyright &copy; Loksin 2020 
                     <br>
-                    Theme by <a href="http://beantech.org" target="_blank" rel="noopener">BeanTech</a> 
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
                     <span style="display: inline-block; margin: 0 5px;">
                         <i class="fa fa-heart"></i>
                     </span> 
-                    re-Ported by <a href="https://l20.github.io/blog">Loksin</a> | 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
                     <iframe
                         style="margin-left: 2px; margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=l20&repo=blog&type=star&count=true" >
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
                     </iframe>
                 </p>
             </div>
@@ -421,19 +440,13 @@
 </footer>
 
 <!-- jQuery -->
-
 <script src="/blog/js/jquery.min.js"></script>
 
-
 <!-- Bootstrap Core JavaScript -->
-
 <script src="/blog/js/bootstrap.min.js"></script>
 
-
 <!-- Custom Theme JavaScript -->
-
 <script src="/blog/js/hux-blog.min.js"></script>
-
 
 
 <!-- async load function -->

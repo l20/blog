@@ -2,13 +2,13 @@
 <html lang="en">
 
 <!-- Head tag -->
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
+    <meta name="description" content>
+    <meta name="keyword" content>
     <link rel="shortcut icon" href="/blog/img/ironman-draw.png">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -21,39 +21,23 @@
     <link rel="canonical" href="https://l20.github.io/blog/blog/casper/2017-05-17-nginx-config/">
 
     <!-- Bootstrap Core CSS -->
-    
-<link rel="stylesheet" href="/blog/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
 
     <!-- Custom CSS --> 
-    
-<link rel="stylesheet" href="/blog/css/beantech.min.css">
+    <link rel="stylesheet" href="/blog/css/beantech.min.css">
 
-
-    
-<link rel="stylesheet" href="/blog/css/donate.css">
-
+    <link rel="stylesheet" href="/blog/css/donate.css">
     
     <!-- Pygments Highlight CSS -->
-    
-<link rel="stylesheet" href="/blog/css/highlight.css">
+    <link rel="stylesheet" href="/blog/css/highlight.css">
 
+    <link rel="stylesheet" href="/blog/css/widget.css">
 
-    
-<link rel="stylesheet" href="/blog/css/widget.css">
+    <link rel="stylesheet" href="/blog/css/rocket.css">
 
+    <link rel="stylesheet" href="/blog/css/signature.css">
 
-    
-<link rel="stylesheet" href="/blog/css/rocket.css">
-
-
-    
-<link rel="stylesheet" href="/blog/css/signature.css">
-
-
-    
-<link rel="stylesheet" href="/blog/css/toc.css">
-
+    <link rel="stylesheet" href="/blog/css/toc.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -77,7 +61,7 @@
 
     <!-- ga & ba script hoook -->
     <script></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+</head>
 
 
 <!-- hack iOS CSS :active style -->
@@ -104,7 +88,7 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/blog/tags/#IT 前端" title="IT 前端">IT 前端</a>
+                              <a class="tag" href="/blog/tags/#IT" title="IT">IT</a>
                             
                         </div>
                         <h1>nginx.config配置文件说明</h1>
@@ -151,6 +135,30 @@
                         <a href="/blog/">Home</a>
                     </li>
 
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/tags/">Tags</a>
+                        </li>
+                        
                     
                     
                 </ul>
@@ -204,25 +212,116 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3><span id="nginxconfig文件">nginx.config文件</span></h3><blockquote>
-<p>在nginx目录的config文件夹下,比如<code>/usr/local/nginx/config</code>。</p>
+                <h3><span id="nginxconfig文件">nginx.config文件</span></h3>
+<blockquote>
+<p>在nginx目录的config文件夹下,比如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 配置文件的结构</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">* __全局块__：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。</span><br><span class="line"></span><br><span class="line">* __events块__：配置影响nginx服务器或与用户的网络连接。有每个进程的最大连接数，选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网路连接，开启多个网络连接序列化等。</span><br><span class="line"></span><br><span class="line">* __http块__：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。如文件引入，mime-type定义，日志自定义，是否使用sendfile传输文件，连接超时时间，单连接请求数等。</span><br><span class="line"></span><br><span class="line">* __server块__：配置虚拟主机的相关参数，一个http中可以有多个server。</span><br><span class="line"></span><br><span class="line">* __location块__：配置请求的路由，以及各种页面的处理情况。</span><br><span class="line"></span><br><span class="line">##### nginx.config文件说明</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h4><span id="配置文件的结构">配置文件的结构</span></h4><hr>
-<ul>
-<li><p><strong>全局块</strong>：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。</p>
-</li>
-<li><p><strong>events块</strong>：配置影响nginx服务器或与用户的网络连接。有每个进程的最大连接数，选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网路连接，开启多个网络连接序列化等。</p>
-</li>
-<li><p><strong>http块</strong>：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。如文件引入，mime-type定义，日志自定义，是否使用sendfile传输文件，连接超时时间，单连接请求数等。</p>
-</li>
-<li><p><strong>server块</strong>：配置虚拟主机的相关参数，一个http中可以有多个server。</p>
-</li>
-<li><p><strong>location块</strong>：配置请求的路由，以及各种页面的处理情况。</p>
-</li>
-</ul>
-<h5><span id="nginxconfig文件说明">nginx.config文件说明</span></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#################### 全局块 #####################</span><br><span class="line"></span><br><span class="line">user www www;                                   # 配置用户或者组，默认为nobody nobody。</span><br><span class="line">worker_processes auto;                          # 允许进程数，默认为1</span><br><span class="line"></span><br><span class="line">error_log &#x2F;data&#x2F;wwwlogs&#x2F;error_nginx.log crit;   # 错误日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg</span><br><span class="line">pid &#x2F;var&#x2F;run&#x2F;nginx.pid;                         # nginx进程pid存放路径</span><br><span class="line">worker_rlimit_nofile 51200;                     # 一个进程所能够打开的fd的最大数</span><br><span class="line"></span><br><span class="line">#################### events块 #####################</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    use epoll;                                  # 事件驱动模型，select|poll|kqueue|epoll|resig|&#x2F;dev&#x2F;poll|eventport</span><br><span class="line">    worker_connections 51200;                   # 每个进程的最大连接数，默认为512</span><br><span class="line">    multi_accept on;                            # 是否允许同时接受多个网路连接，默认为off</span><br><span class="line">    # accept_mutex on;                          # 设置网路连接序列化（是否允许互斥锁），防止惊群现象发生，默认为on</span><br><span class="line">&#125;                                               # 惊群现象：一个网路连接到来，多个睡眠的进程被同事叫醒，但只有一个进程能获得链接，这样会影响系统性能。</span><br><span class="line"></span><br><span class="line">#################### http块 #####################</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line"></span><br><span class="line">    ################ http全局块 #################</span><br><span class="line"></span><br><span class="line">    #可以嵌套多个server，配置代理</span><br><span class="line"></span><br><span class="line">    include mime.types;                          # 文件扩展名与文件类型映射表              </span><br><span class="line">    default_type application&#x2F;octet-stream;       # 默认文件类型，默认为text&#x2F;plain</span><br><span class="line">    #access_log off;                             # 取消服务日志           </span><br><span class="line">    server_names_hash_bucket_size 128;</span><br><span class="line">    client_header_buffer_size 32k;</span><br><span class="line">    large_client_header_buffers 4 32k;</span><br><span class="line">    client_max_body_size 1024m;</span><br><span class="line">    # sendfile_max_chunk 100k;                   # 每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</span><br><span class="line">    sendfile on;                                 # 允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。</span><br><span class="line">    tcp_nopush on;</span><br><span class="line">    keepalive_timeout 120;                       # 连接超时时间，默认为75s，可以在http，server，location块。</span><br><span class="line"></span><br><span class="line">    server_tokens off;</span><br><span class="line">    tcp_nodelay on;</span><br><span class="line"></span><br><span class="line">    fastcgi_connect_timeout 300;</span><br><span class="line">    fastcgi_send_timeout 300;</span><br><span class="line">    fastcgi_read_timeout 300;</span><br><span class="line">    fastcgi_buffer_size 64k;</span><br><span class="line">    fastcgi_buffers 4 64k;</span><br><span class="line">    fastcgi_busy_buffers_size 128k;</span><br><span class="line">    fastcgi_temp_file_write_size 128k;</span><br><span class="line"></span><br><span class="line">    #Gzip Compression</span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_buffers 16 8k;</span><br><span class="line">    gzip_comp_level 6;</span><br><span class="line">    gzip_http_version 1.1;</span><br><span class="line">    gzip_min_length 256;</span><br><span class="line">    gzip_proxied any;</span><br><span class="line">    gzip_vary on;</span><br><span class="line">    gzip_types</span><br><span class="line">        text&#x2F;xml application&#x2F;xml application&#x2F;atom+xml application&#x2F;rss+xml application&#x2F;xhtml+xml image&#x2F;svg+xml</span><br><span class="line">        text&#x2F;javascript application&#x2F;javascript application&#x2F;x-javascript</span><br><span class="line">        text&#x2F;x-json application&#x2F;json application&#x2F;x-web-app-manifest+json</span><br><span class="line">        text&#x2F;css text&#x2F;plain text&#x2F;x-component</span><br><span class="line">        font&#x2F;opentype application&#x2F;x-font-ttf application&#x2F;vnd.ms-fontobject</span><br><span class="line">        image&#x2F;x-icon;</span><br><span class="line">    gzip_disable &quot;MSIE [1-6]\.(?!.*SV1)&quot;;</span><br><span class="line"></span><br><span class="line">    #If you have a lot of static files to serve through Nginx then caching of the files&#39; metadata (not the actual files&#39; contents) can save some latency.</span><br><span class="line">    open_file_cache max&#x3D;1000 inactive&#x3D;20s;</span><br><span class="line">    open_file_cache_valid 30s;</span><br><span class="line">    open_file_cache_min_uses 2;</span><br><span class="line">    open_file_cache_errors on;</span><br><span class="line"></span><br><span class="line">    # error_page 404 https:&#x2F;&#x2F;www.error.com;     #错误页</span><br><span class="line"></span><br><span class="line">    ################ http server块 #################</span><br><span class="line">   </span><br><span class="line">    # 配置虚拟主机的相关参数，一个http中可以有多个server。</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen 80;                                          # 监听端口</span><br><span class="line">        server_name _;                                      # 监听地址     </span><br><span class="line">        access_log &#x2F;data&#x2F;wwwlogs&#x2F;access_nginx.log combined; # combined为日志格式的默认值</span><br><span class="line">        root &#x2F;data&#x2F;wwwroot&#x2F;default;                         # 根目录</span><br><span class="line">        index index.html index.htm index.php;</span><br><span class="line"></span><br><span class="line">####################### 配置请求的路由，以及各种页面的处理情况。###########################</span><br><span class="line"></span><br><span class="line">        location &#x2F;nginx_status &#123;   # 请求的url过滤，正则匹配，下同</span><br><span class="line">            stub_status on;</span><br><span class="line">            access_log off;</span><br><span class="line">            allow 127.0.0.1;       # 允许的ip  </span><br><span class="line">            deny all;              # 拒绝的ip</span><br><span class="line">            &#125;</span><br><span class="line">        location ~ [^&#x2F;]\.php(&#x2F;|$) &#123;</span><br><span class="line">            #fastcgi_pass remote_php_ip:9000;</span><br><span class="line">            fastcgi_pass unix:&#x2F;dev&#x2F;shm&#x2F;php-cgi.sock;</span><br><span class="line">            fastcgi_index index.php;</span><br><span class="line">            include fastcgi.conf;</span><br><span class="line">            &#125;</span><br><span class="line">        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|flv|ico)$ &#123;</span><br><span class="line">            expires 30d;</span><br><span class="line">            access_log off;</span><br><span class="line">            &#125;</span><br><span class="line">        location ~ .*\.(js|css)?$ &#123;</span><br><span class="line">            expires 7d;</span><br><span class="line">            access_log off;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">########################## 第三方模配置导入 #############################</span><br><span class="line">    include vhost&#x2F;*.conf;       # 可以是用户自定义的配置模块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>#################### 全局块 #####################</p>
+<p>user www www;                                   # 配置用户或者组，默认为nobody nobody。<br>
+worker_processes auto;                          # 允许进程数，默认为1</p>
+<p>error_log /data/wwwlogs/error_nginx.log crit;   # 错误日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg<br>
+pid /var/run/nginx.pid;                         # nginx进程pid存放路径<br>
+worker_rlimit_nofile 51200;                     # 一个进程所能够打开的fd的最大数</p>
+<p>#################### events块 #####################</p>
+<p>events {<br>
+use epoll;                                  # 事件驱动模型，select|poll|kqueue|epoll|resig|/dev/poll|eventport<br>
+worker_connections 51200;                   # 每个进程的最大连接数，默认为512<br>
+multi_accept on;                            # 是否允许同时接受多个网路连接，默认为off<br>
+# accept_mutex on;                          # 设置网路连接序列化（是否允许互斥锁），防止惊群现象发生，默认为on<br>
+}                                               # 惊群现象：一个网路连接到来，多个睡眠的进程被同事叫醒，但只有一个进程能获得链接，这样会影响系统性能。</p>
+<p>#################### http块 #####################</p>
+<p>http {</p>
+<pre><code>################ http全局块 #################
 
-<p>配置完成之后可通过命令<code>#/usr/local/nginx/sbin/nginx -s reload</code>重启nginx生效</p>
+#可以嵌套多个server，配置代理
+
+include mime.types;                          # 文件扩展名与文件类型映射表              
+default_type application/octet-stream;       # 默认文件类型，默认为text/plain
+#access_log off;                             # 取消服务日志           
+server_names_hash_bucket_size 128;
+client_header_buffer_size 32k;
+large_client_header_buffers 4 32k;
+client_max_body_size 1024m;
+# sendfile_max_chunk 100k;                   # 每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。
+sendfile on;                                 # 允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。
+tcp_nopush on;
+keepalive_timeout 120;                       # 连接超时时间，默认为75s，可以在http，server，location块。
+
+server_tokens off;
+tcp_nodelay on;
+
+fastcgi_connect_timeout 300;
+fastcgi_send_timeout 300;
+fastcgi_read_timeout 300;
+fastcgi_buffer_size 64k;
+fastcgi_buffers 4 64k;
+fastcgi_busy_buffers_size 128k;
+fastcgi_temp_file_write_size 128k;
+
+#Gzip Compression
+gzip on;
+gzip_buffers 16 8k;
+gzip_comp_level 6;
+gzip_http_version 1.1;
+gzip_min_length 256;
+gzip_proxied any;
+gzip_vary on;
+gzip_types
+    text/xml application/xml application/atom+xml application/rss+xml application/xhtml+xml image/svg+xml
+    text/javascript application/javascript application/x-javascript
+    text/x-json application/json application/x-web-app-manifest+json
+    text/css text/plain text/x-component
+    font/opentype application/x-font-ttf application/vnd.ms-fontobject
+    image/x-icon;
+gzip_disable &quot;MSIE [1-6]\.(?!.*SV1)&quot;;
+
+#If you have a lot of static files to serve through Nginx then caching of the files' metadata (not the actual files' contents) can save some latency.
+open_file_cache max=1000 inactive=20s;
+open_file_cache_valid 30s;
+open_file_cache_min_uses 2;
+open_file_cache_errors on;
+
+# error_page 404 https://www.error.com;     #错误页
+
+################ http server块 #################
+
+# 配置虚拟主机的相关参数，一个http中可以有多个server。
+
+server {
+    listen 80;                                          # 监听端口
+    server_name _;                                      # 监听地址     
+    access_log /data/wwwlogs/access_nginx.log combined; # combined为日志格式的默认值
+    root /data/wwwroot/default;                         # 根目录
+    index index.html index.htm index.php;
+</code></pre>
+<p>####################### 配置请求的路由，以及各种页面的处理情况。###########################</p>
+<pre><code>    location /nginx_status {   # 请求的url过滤，正则匹配，下同
+        stub_status on;
+        access_log off;
+        allow 127.0.0.1;       # 允许的ip  
+        deny all;              # 拒绝的ip
+        }
+    location ~ [^/]\.php(/|$) {
+        #fastcgi_pass remote_php_ip:9000;
+        fastcgi_pass unix:/dev/shm/php-cgi.sock;
+        fastcgi_index index.php;
+        include fastcgi.conf;
+        }
+    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|flv|ico)$ {
+        expires 30d;
+        access_log off;
+        }
+    location ~ .*\.(js|css)?$ {
+        expires 7d;
+        access_log off;
+        }
+}
+</code></pre>
+<p>########################## 第三方模配置导入 #############################<br>
+include vhost/*.conf;       # 可以是用户自定义的配置模块<br>
+}</p>
+<pre><code>
+配置完成之后可通过命令``` #/usr/local/nginx/sbin/nginx -s reload ```重启nginx生效</code></pre>
 
                 
 
@@ -290,7 +389,7 @@
                     <h5><a href="/blog/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/blog/tags/#IT 前端" title="IT 前端">IT 前端</a>
+                          <a class="tag" href="/blog/tags/#IT" title="IT">IT</a>
                         
                     </div>
                 </section>
@@ -403,15 +502,15 @@
                 <p class="copyright text-muted">
                     Copyright &copy; Loksin 2020 
                     <br>
-                    Theme by <a href="http://beantech.org" target="_blank" rel="noopener">BeanTech</a> 
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
                     <span style="display: inline-block; margin: 0 5px;">
                         <i class="fa fa-heart"></i>
                     </span> 
-                    re-Ported by <a href="https://l20.github.io/blog">Loksin</a> | 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
                     <iframe
                         style="margin-left: 2px; margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=l20&repo=blog&type=star&count=true" >
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
                     </iframe>
                 </p>
             </div>
@@ -420,19 +519,13 @@
 </footer>
 
 <!-- jQuery -->
-
 <script src="/blog/js/jquery.min.js"></script>
 
-
 <!-- Bootstrap Core JavaScript -->
-
 <script src="/blog/js/bootstrap.min.js"></script>
 
-
 <!-- Custom Theme JavaScript -->
-
 <script src="/blog/js/hux-blog.min.js"></script>
-
 
 
 <!-- async load function -->

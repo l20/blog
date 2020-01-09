@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Vue脚手架 - Loksin | Blog
+          Tags - Loksin | Blog
         
     </title>
 
-    <link rel="canonical" href="https://l20.github.io/blog/blog/casper/2017-05-22-vue-cli/">
+    <link rel="canonical" href="https://l20.github.io/blog/blog/tags/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/blog/img/article_header/article_bg.jpg')
-            /*post*/
+            background-image: url('/img/header_img/tag.png')
+            /*page*/
         
     }
     
@@ -85,18 +85,10 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="post-heading">
-                        <div class="tags">
-                            
-                              <a class="tag" href="/blog/tags/#IT" title="IT">IT</a>
-                            
-                        </div>
-                        <h1>Vue脚手架</h1>
-                        <h2 class="subheading"></h2>
-                        <span class="meta">
-                            Posted by Loksin on
-                            2017-05-18
-                        </span>
+                    <div class="site-heading">
+                        <h1>Tags</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading">Hey, this is Tags.</span>
                     </div>
                 
 
@@ -199,184 +191,131 @@
 
 
     <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                <h1><span id="vue-cli脚手架分析">vue-cli脚手架分析</span></h1>
-<h2><span id="前言">前言</span></h2>
-<p>vue脚手架是帮助用户快速搭建vue模板化、模块化开发的一套命令程序，可根据需要生成相应的模板，用户可以直接在基础模板上开发，省去了用户自搭模板的工序提高开发效率。<br>
-本文不教授如何使用脚手架搭建项目，旨在分析脚手架然后实现自己的脚手架搭建模板。</p>
-<h2><span id="开始">开始</span></h2>
-<p>要分析他的实现原理可以到git仓库上把源码clone下来并安装依赖。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆仓库</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/vuejs/vue-cli</span><br><span class="line"><span class="comment"># 切换目录</span></span><br><span class="line">$ <span class="built_in">cd</span> vue-cli</span><br><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>之后打开bin文件夹，这个文件夹是执行vue脚手架的命令如，<code>vue init、vue buil、vue list</code>等.<br>
-打开之后可以看到有四个文件vue、vue-build、vue-list、vue-init。这几个文件对应的可执行的node脚本程序，对应实现命令功能如下：</p>
-<ul>
-<li><code>vue</code>:</li>
-<li><code>vue-build</code>:</li>
-<li><code>vue-init</code>: 初始化模板。</li>
-<li><code>vue-list</code>: 罗列所有项目模板。</li>
-</ul>
-
+    <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- 标签云 -->
+            <div id='tag_cloud' class="tags">
                 
+                    <a href="#音乐" title="音乐" rel="1">音乐</a>
+                
+                    <a href="#IT" title="IT" rel="5">IT</a>
+                
+            </div>
 
+            <!-- 标签列表 -->
+
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="音乐">
+                    <span class="tag-text">音乐</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/blog/casper/2017-05-16-music/">
+                        <h2 class="post-title">
+                            基本乐理基础知识
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
                 <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/blog/casper/2017-05-17-nginx-config/" data-toggle="tooltip" data-placement="top" title="nginx.config配置文件说明">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/blog/casper/2017-05-17-nginx-1/" data-toggle="tooltip" data-placement="top" title="nginx学习笔记——架构">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
-
-                <br>
-
-                <!--打赏-->
                 
-                <!--打赏-->
-
-                <br>
-                <!--分享-->
-                
-                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
-                    <!--  css & js -->
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-                
-                <!--分享-->
-                <br>                       
-                
-                <!-- require APlayer -->
-                
-
-                <!-- duoshuo Share start -->
-                
-                <!-- 多说 Share end-->
-
-                <!-- 多说评论框 start -->
-                
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                
-                <!-- disqus comment end -->
-
-                
-
             </div>
             
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
-
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="IT">
+                    <span class="tag-text">IT</span>
+                </span>
                 
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/blog/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/blog/tags/#IT" title="IT">IT</a>
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/blog/casper/2017-05-17-nginx-config/">
+                        <h2 class="post-title">
+                            nginx.config配置文件说明
+                        </h2>
                         
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
                 <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                </ul>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/blog/casper/2017-05-22-vue-cli/">
+                        <h2 class="post-title">
+                            Vue脚手架
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/blog/casper/2017-05-17-nginx-1/">
+                        <h2 class="post-title">
+                            nginx学习笔记——架构
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/blog/casper/2017-05-17-nginx-2/">
+                        <h2 class="post-title">
+                            nginx学习笔记——基础概念
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/blog/casper/2017-06-05-test-yunxiao/">
+                        <h2 class="post-title">
+                            笔试经历
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
                 
             </div>
+            
+
+
         </div>
     </div>
-</article>
-
-
-
-
-
-
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'ℬ'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
-
-
-<!-- chrome Firefox 中文锚点定位失效-->
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-<!-- smooth scroll behavior polyfill  -->
-<script type="text/javascript" src="/js/smoothscroll.js"></script>
-<script>
-        $('#toc').on('click','a',function(a){
-            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
-            // console.log(window.navigator.userAgent,isChrome)
-                // if(isChrome) {
-                    // console.log(a.currentTarget.outerHTML);
-                    // console.log($(a.currentTarget).attr("href"));
-                    //跳转到指定锚点
-                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
-                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
-                // }
-        })  
-</script>
+</div>
 
 
     <!-- Footer -->

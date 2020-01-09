@@ -2,13 +2,13 @@
 <html lang="en">
 
 <!-- Head tag -->
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
+    <meta name="description" content>
+    <meta name="keyword" content>
     <link rel="shortcut icon" href="/blog/img/ironman-draw.png">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -21,39 +21,23 @@
     <link rel="canonical" href="https://l20.github.io/blog/blog/casper/2017-06-05-test-yunxiao/">
 
     <!-- Bootstrap Core CSS -->
-    
-<link rel="stylesheet" href="/blog/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
 
     <!-- Custom CSS --> 
-    
-<link rel="stylesheet" href="/blog/css/beantech.min.css">
+    <link rel="stylesheet" href="/blog/css/beantech.min.css">
 
-
-    
-<link rel="stylesheet" href="/blog/css/donate.css">
-
+    <link rel="stylesheet" href="/blog/css/donate.css">
     
     <!-- Pygments Highlight CSS -->
-    
-<link rel="stylesheet" href="/blog/css/highlight.css">
+    <link rel="stylesheet" href="/blog/css/highlight.css">
 
+    <link rel="stylesheet" href="/blog/css/widget.css">
 
-    
-<link rel="stylesheet" href="/blog/css/widget.css">
+    <link rel="stylesheet" href="/blog/css/rocket.css">
 
+    <link rel="stylesheet" href="/blog/css/signature.css">
 
-    
-<link rel="stylesheet" href="/blog/css/rocket.css">
-
-
-    
-<link rel="stylesheet" href="/blog/css/signature.css">
-
-
-    
-<link rel="stylesheet" href="/blog/css/toc.css">
-
+    <link rel="stylesheet" href="/blog/css/toc.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -77,7 +61,7 @@
 
     <!-- ga & ba script hoook -->
     <script></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+</head>
 
 
 <!-- hack iOS CSS :active style -->
@@ -152,6 +136,30 @@
                     </li>
 
                     
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/tags/">Tags</a>
+                        </li>
+                        
+                    
                     
                 </ul>
             </div>
@@ -205,30 +213,16 @@
                 post-container">
 
                 <p>下面是我的笔试所经历是试题，面完试自我感觉良好，可是一回来重做一遍想撞墙，记录下来当做爬坑经历,最主要是js的问题,基础不行还是无缘加入这家公司了。</p>
-<h5><span id="1以下代码会输出什么">1.以下代码会输出什么？</span></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (name) </span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.prototype.name = <span class="string">'Tom'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> human = &#123;</span><br><span class="line">    person : person,</span><br><span class="line">    name : <span class="string">'Cat'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person()            <span class="comment">// ''</span></span><br><span class="line">person(<span class="string">'Jack'</span>)      <span class="comment">//Jack</span></span><br><span class="line"><span class="keyword">new</span> person()        <span class="comment">//Tom</span></span><br><span class="line"><span class="keyword">new</span> person(<span class="string">'Rose'</span>)  <span class="comment">//Rose</span></span><br><span class="line">human.person()      <span class="comment">//Cat</span></span><br><span class="line">person.call(<span class="built_in">window</span>) <span class="comment">//Jack</span></span><br></pre></td></tr></table></figure>
-
-<p>这里是要考察函数<code>this</code>指向的问题，分析之前先搞清楚函数<code>this</code>的指向：</p>
-<blockquote>
-<p>情况1：如果一个函数中有this，但是它没有被上一级的对象所调用，那么this指向的就是window。</p>
-</blockquote>
-<blockquote>
-<p>情况2：如果一个函数中有this，这个函数有被上一级的对象所调用，那么this指向的就是上一级的对象。</p>
-</blockquote>
-<blockquote>
-<p>情况3：如果一个函数中有this，这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象。</p>
-</blockquote>
-<p>摘自博客<a href="http://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="noopener">http://www.cnblogs.com/pssp/p/5216085.html</a></p>
-<p>之后来看</p>
-<figure class="highlight plain"><figcaption><span>``` 会输出空,当做普通函数执行此时```this.name```为空无异议。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;person(&#39;Jack&#39;)&#96;&#96;&#96; 这里输出 &#96;&#96;&#96;Jack&#96;&#96;&#96; 也无异议，当做普通函数来传参并执行，不过需要注意的是这里当做普通函数来执行之后&#96;&#96;&#96;this&#96;&#96;&#96;指向了全局浏览器中的&#96;&#96;&#96;window&#96;&#96;&#96;对象，此时的&#96;&#96;&#96;this.name&#96;&#96;&#96;相当于&#96;&#96;&#96;window.name&#96;&#96;&#96;。</span><br><span class="line">&#96;&#96;&#96;new person() &#x2F;&#x2F;Tom&#96;&#96;&#96;,加了&#96;&#96;&#96;new&#96;&#96;&#96;之后的情况，先来了解下&#96;&#96;&#96;new&#96;&#96;&#96;到底干了什么？</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96; js</span><br><span class="line">    var obj  &#x3D; &#123;&#125;; </span><br><span class="line">    obj.__proto__ &#x3D; Base.prototype;</span><br><span class="line">    Base.call(obj);  </span><br><span class="line">&#96;&#96;&#96;    </span><br><span class="line">+ 第一行，我们创建了一个空对象obj。</span><br><span class="line">+ 第二行，我们将这个空对象的__proto__成员指向了Base函数对象prototype成员对象。</span><br><span class="line">+ 第三行，我们将Base函数对象的this指针替换成obj，然后再调用Base函数，于是我们就给obj对象赋值了一个id成员变量，这个成员变量的值是”base”。</span><br><span class="line"></span><br><span class="line">由此，通过&#96;&#96;&#96;new&#96;&#96;&#96;之后创建了一个指向&#96;&#96;&#96;person&#96;&#96;&#96;的对象，在执行到&#96;&#96;&#96; console.log(this.name)&#96;&#96;&#96;后js解释器会现在本地（person的上下文）查找有关&#96;&#96;&#96;name&#96;&#96;&#96;属性，但是没有找到，又去原型链中查找，终于发现了个&#96;&#96;&#96;name&#96;&#96;&#96;属性，所以就引用了这个属性的值。</span><br><span class="line">&#96;&#96;&#96;new person(&#39;Rose&#39;)  &#x2F;&#x2F;Rose&#96;&#96;&#96;自然就不用解释了。</span><br><span class="line">&#96;&#96;&#96;human.person()      &#x2F;&#x2F;Cat&#96;&#96;&#96;，函数的&#96;&#96;&#96;this&#96;&#96;&#96;指向调用它的上下文。</span><br><span class="line"></span><br><span class="line">##### 2.以下代码会输出什么？</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;js</span><br><span class="line">    var str &#x3D; &#39;hello&#39;;</span><br><span class="line"></span><br><span class="line">    function hello(str)&#123;</span><br><span class="line">        var str;</span><br><span class="line">        console.log(str);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    hello(&#39;kitty&#39;)      &#x2F;&#x2F; kitty</span><br><span class="line">    console.log(str)    &#x2F;&#x2F; hello</span><br></pre></td></tr></table></figure>
-
-<p>以上，创建上下文的时候会提升所有的变量声明和函数声明，会在这里找变量发现<code>function (str)</code>这里有个<code>str</code>变量先提升，给个默认值<code>undefined</code>然后发现没有别的变量了,里面的str由于跟参数列表里的str是同名的，所以只会提升一次，不会覆盖<br>而在执行的时候，var str这个事函数声明，它已经在创建执行上下文的时候提升了，所以直接略过</p>
-<h5><span id="3以下代码会输出什么">3.以下代码会输出什么？</span></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">window</span>.a = <span class="string">'hello'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">'kitty'</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line">hello(); <span class="comment">// undefined</span></span><br><span class="line">         <span class="comment">// kitty</span></span><br></pre></td></tr></table></figure>
-
-<h5><span id="4以下代码会输出什么">4.以下代码会输出什么？</span></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">T</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'t'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'b'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> T();</span><br><span class="line">T.prototype = B.prototype;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(t <span class="keyword">instanceof</span> T); <span class="comment">// fasle</span></span><br><span class="line"><span class="built_in">console</span>.log(t <span class="keyword">instanceof</span> B); <span class="comment">// fasle</span></span><br></pre></td></tr></table></figure>
-
-<h5><span id="5以下代码会输出什么">5.以下代码会输出什么？</span></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    bar : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="number">2</span>,</span><br><span class="line">    baz : <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.bar = <span class="literal">undefined</span>;</span><br><span class="line">obj.foo = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">delete</span> obj.baz;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(i)) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//bar</span></span><br><span class="line"><span class="comment">//foo</span></span><br></pre></td></tr></table></figure>
-
-<h5><span id="6以下代码会输出什么">6.以下代码会输出什么？</span></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.name = <span class="string">'dog'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> Dog();</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(d.name);  <span class="comment">// dog</span></span><br><span class="line"></span><br><span class="line">Dog.prototype.name = <span class="string">'hotdog'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(d.name); <span class="comment">// hotdog</span></span><br><span class="line"></span><br><span class="line">d.name = <span class="string">'baddog'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(d.name); <span class="comment">// baddog</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> d.name;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(d.name); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<h5><span id="1以下代码会输出什么">1.以下代码会输出什么？</span></h5>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (name) </span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.prototype.name = <span class="string">'Tom'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> human = &#123;</span><br><span class="line">    person : person,</span><br><span class="line">    name : <span class="string">'Cat'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person()            <span class="comment">// ''</span></span><br><span class="line">person(<span class="string">'Jack'</span>)      <span class="comment">//Jack</span></span><br><span class="line"><span class="keyword">new</span> person()        <span class="comment">//Tom</span></span><br><span class="line"><span class="keyword">new</span> person(<span class="string">'Rose'</span>)  <span class="comment">//Rose</span></span><br><span class="line">human.person()      <span class="comment">//Cat</span></span><br><span class="line">person.call(<span class="built_in">window</span>) <span class="comment">//Jack</span></span><br></pre></td></tr></table></figure>
+<p>这里是要考察函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&gt; 情况1：如果一个函数中有this，但是它没有被上一级的对象所调用，那么this指向的就是window。</span><br><span class="line"></span><br><span class="line">&gt; 情况2：如果一个函数中有this，这个函数有被上一级的对象所调用，那么this指向的就是上一级的对象。</span><br><span class="line"></span><br><span class="line">&gt; 情况3：如果一个函数中有this，这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象。</span><br><span class="line"></span><br><span class="line">摘自博客[http://www.cnblogs.com/pssp/p/5216085.html](http://www.cnblogs.com/pssp/p/5216085.html)</span><br><span class="line"></span><br><span class="line">之后来看</span><br><span class="line">```person() ``` 会输出空,当做普通函数执行此时```this.name```为空无异议。</span><br><span class="line">```person(&apos;Jack&apos;)``` 这里输出 ```Jack``` 也无异议，当做普通函数来传参并执行，不过需要注意的是这里当做普通函数来执行之后```this```指向了全局浏览器中的```window```对象，此时的```this.name```相当于```window.name```。</span><br><span class="line">```new person() //Tom```,加了```new```之后的情况，先来了解下```new```到底干了什么？</span><br><span class="line"></span><br><span class="line">``` js</span><br><span class="line">    var obj  = &#123;&#125;; </span><br><span class="line">    obj.__proto__ = Base.prototype;</span><br><span class="line">    Base.call(obj);  </span><br><span class="line">```    </span><br><span class="line">+ 第一行，我们创建了一个空对象obj。</span><br><span class="line">+ 第二行，我们将这个空对象的__proto__成员指向了Base函数对象prototype成员对象。</span><br><span class="line">+ 第三行，我们将Base函数对象的this指针替换成obj，然后再调用Base函数，于是我们就给obj对象赋值了一个id成员变量，这个成员变量的值是”base”。</span><br><span class="line"></span><br><span class="line">由此，通过```new```之后创建了一个指向```person```的对象，在执行到``` console.log(this.name)```后js解释器会现在本地（person的上下文）查找有关```name```属性，但是没有找到，又去原型链中查找，终于发现了个```name```属性，所以就引用了这个属性的值。</span><br><span class="line">```new person(&apos;Rose&apos;)  //Rose```自然就不用解释了。</span><br><span class="line">```human.person()      //Cat```，函数的```this```指向调用它的上下文。</span><br><span class="line"></span><br><span class="line">##### 2.以下代码会输出什么？</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">    var str = &apos;hello&apos;;</span><br><span class="line"></span><br><span class="line">    function hello(str)&#123;</span><br><span class="line">        var str;</span><br><span class="line">        console.log(str);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    hello(&apos;kitty&apos;)      // kitty</span><br><span class="line">    console.log(str)    // hello</span><br></pre></td></tr></table></figure></p>
+<p>以上，创建上下文的时候会提升所有的变量声明和函数声明，会在这里找变量发现<figure class="highlight plain"><figcaption><span>(str)```这里有个```str```变量先提升，给个默认值```undefined```然后发现没有别的变量了,里面的str由于跟参数列表里的str是同名的，所以只会提升一次，不会覆盖</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">而在执行的时候，var str这个事函数声明，它已经在创建执行上下文的时候提升了，所以直接略过</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">##### 3.以下代码会输出什么？</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">    var a = window.a = &apos;hello&apos;;</span><br><span class="line"></span><br><span class="line">    function hello(a)&#123;</span><br><span class="line">        console.log(a)</span><br><span class="line">        var a = &apos;kitty&apos;;</span><br><span class="line">        console.log(a);</span><br><span class="line">    &#125;</span><br><span class="line">    hello(); // undefined</span><br><span class="line">             // kitty</span><br></pre></td></tr></table></figure></p>
+<h5><span id="4以下代码会输出什么">4.以下代码会输出什么？</span></h5>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">T</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'t'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'b'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> T();</span><br><span class="line">T.prototype = B.prototype;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(t <span class="keyword">instanceof</span> T); <span class="comment">// fasle</span></span><br><span class="line"><span class="built_in">console</span>.log(t <span class="keyword">instanceof</span> B); <span class="comment">// fasle</span></span><br></pre></td></tr></table></figure>
+<h5><span id="5以下代码会输出什么">5.以下代码会输出什么？</span></h5>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    bar : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="number">2</span>,</span><br><span class="line">    baz : <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.bar = <span class="literal">undefined</span>;</span><br><span class="line">obj.foo = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">delete</span> obj.baz;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(i)) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//bar</span></span><br><span class="line"><span class="comment">//foo</span></span><br></pre></td></tr></table></figure>
+<h5><span id="6以下代码会输出什么">6.以下代码会输出什么？</span></h5>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.name = <span class="string">'dog'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> Dog();</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(d.name);  <span class="comment">// dog</span></span><br><span class="line"></span><br><span class="line">Dog.prototype.name = <span class="string">'hotdog'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(d.name); <span class="comment">// hotdog</span></span><br><span class="line"></span><br><span class="line">d.name = <span class="string">'baddog'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(d.name); <span class="comment">// baddog</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> d.name;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(d.name); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
 
                 
 
@@ -409,15 +403,15 @@
                 <p class="copyright text-muted">
                     Copyright &copy; Loksin 2020 
                     <br>
-                    Theme by <a href="http://beantech.org" target="_blank" rel="noopener">BeanTech</a> 
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
                     <span style="display: inline-block; margin: 0 5px;">
                         <i class="fa fa-heart"></i>
                     </span> 
-                    re-Ported by <a href="https://l20.github.io/blog">Loksin</a> | 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
                     <iframe
                         style="margin-left: 2px; margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=l20&repo=blog&type=star&count=true" >
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
                     </iframe>
                 </p>
             </div>
@@ -426,19 +420,13 @@
 </footer>
 
 <!-- jQuery -->
-
 <script src="/blog/js/jquery.min.js"></script>
 
-
 <!-- Bootstrap Core JavaScript -->
-
 <script src="/blog/js/bootstrap.min.js"></script>
 
-
 <!-- Custom Theme JavaScript -->
-
 <script src="/blog/js/hux-blog.min.js"></script>
-
 
 
 <!-- async load function -->
