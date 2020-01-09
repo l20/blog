@@ -7,8 +7,8 @@
 title: Loksin 
 subtitle: Loksin's space
 author: Loksin
-language:
-timezone:
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -221,5 +221,4 @@ deploy:
   type: git
   repository: https://github.com/l20/blog
   branch: gh-pages
-  message: Update CNAME
 
