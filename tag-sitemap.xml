@@ -3,14 +3,21 @@
 
     <url>
         <loc>https://l20.github.io/blog/tags/%E9%9F%B3%E4%B9%90/</loc>
-        <lastmod>2020-01-09T08:46:37.485Z</lastmod>
+        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://l20.github.io/blog/tags/IT/</loc>
-        <lastmod>2020-01-09T08:46:37.489Z</lastmod>
+        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://l20.github.io/blog/tags/%E4%B9%90%E7%90%86/</loc>
+        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
