@@ -211,6 +211,42 @@
 
 <div class="post-preview">
 
+    <a href="/blog/article/乐理笔记4/">
+        <h2 class="post-title">
+                                 
+            变化音
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            此笔记为宋大叔课程笔记.
+变化音
+
+自然音: 键盘上的白键, 1 2 3 4 5 6 7 1
+变化音: 键盘上的白键音加上黑键的变调音, 1 2 3 4 ♯4 5 6 7 , ♯4就是升F属于变化音.
+♯和♭所指示的变化音, 在一个小节内都有效. 如:
+
+3 5 ♯4 5__4 | 5 — .
+以上的第一小节中♯4要升调, 第二个4也要升调变成♯4.
+同样的 1 1 ♭7 6 6 7 | 1......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Loksin on
+            2020-01-29
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/blog/article/乐理笔记3/">
         <h2 class="post-title">
                                  
@@ -440,24 +476,22 @@ vue脚手架是帮助用户快速搭建vue模板化、模块化开发的一套�
 
 <div class="post-preview">
 
-    <a href="/blog/casper/2017-05-17-nginx-1/">
+    <a href="/blog/casper/2017-05-17-nginx-2/">
         <h2 class="post-title">
                                  
-            nginx学习笔记——架构
+            nginx学习笔记——基础概念
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            简介
+            connection
 
-nginx是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。一般在Unix系统上运行。(摘自百度百科)
 
-架构
+在nginx中connection就是对tcp连接的封装，其中包括连接的socket，读事件、写事件。
 
-1.nginx启动后，在unix系统中会以的方式在后台运行,这些后台进程包含一个master进程和多个worker进程。
-2.nginx支持多线程和多进程方式，主流是多进程（nginx的默认方式）。
-3.master进程主要用来管理wor......
+
+nginx中的http请求的处理就是建立在123456789101112131415161718* nginx可以作为客户端来请求其它server的数据的（如```upstream```模块），与其它server创建的连接，也封装在```ngx_connect......
         </div>
     </a>
     
@@ -477,22 +511,24 @@ nginx是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/S
 
 <div class="post-preview">
 
-    <a href="/blog/casper/2017-05-17-nginx-2/">
+    <a href="/blog/casper/2017-05-17-nginx-1/">
         <h2 class="post-title">
                                  
-            nginx学习笔记——基础概念
+            nginx学习笔记——架构
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            connection
+            简介
 
+nginx是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。一般在Unix系统上运行。(摘自百度百科)
 
-在nginx中connection就是对tcp连接的封装，其中包括连接的socket，读事件、写事件。
+架构
 
-
-nginx中的http请求的处理就是建立在123456789101112131415161718* nginx可以作为客户端来请求其它server的数据的（如```upstream```模块），与其它server创建的连接，也封装在```ngx_connect......
+1.nginx启动后，在unix系统中会以的方式在后台运行,这些后台进程包含一个master进程和多个worker进程。
+2.nginx支持多线程和多进程方式，主流是多进程（nginx的默认方式）。
+3.master进程主要用来管理wor......
         </div>
     </a>
     
@@ -542,43 +578,16 @@ nginx中的http请求的处理就是建立在123456789101112131415161718* nginx�
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/blog/casper/2017-06-05-test-yunxiao/">
-        <h2 class="post-title">
-                                 
-            笔试经历
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            下面是我的笔试所经历是试题，面完试自我感觉良好，可是一回来重做一遍想撞墙，记录下来当做爬坑经历,最主要是js的问题,基础不行还是无缘加入这家公司了。
-1.以下代码会输出什么？
-12345678910111213141516171819function person(name)&#123; if (name)     this.name = name; console.log(this.nam......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Loksin on
-            2017-05-16
-        </p>
-        <div class="tags">
-            
-              <a href="/blog/tags/#IT" title="IT">IT</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
 
 <ul class="pager">
     
+    
+        <li class="next">
+            <a href="/blog/page/2/">Older Posts &rarr;</a>
+        </li>
     
 </ul>
 
@@ -674,6 +683,10 @@ nginx中的http请求的处理就是建立在123456789101112131415161718* nginx�
     <ul>
       
         <li>
+          <a href="/blog/article/乐理笔记4/">变化音</a>
+        </li>
+      
+        <li>
           <a href="/blog/article/乐理笔记3/">起音(认大调)与五线谱与附点音符</a>
         </li>
       
@@ -687,10 +700,6 @@ nginx中的http请求的处理就是建立在123456789101112131415161718* nginx�
       
         <li>
           <a href="/blog/article/乐理笔记1/">看谱唱歌与基础乐理(1) 唱名、音名、与音符、休止符、拍号</a>
-        </li>
-      
-        <li>
-          <a href="/blog/casper/2017-05-17-nginx-config/">nginx.config配置文件说明</a>
         </li>
       
     </ul>
@@ -711,7 +720,7 @@ nginx中的http请求的处理就是建立在123456789101112131415161718* nginx�
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">五月 2017</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">五月 2017</a><span class="archive-list-count">6</span></li></ul>
     </div>
 
         <hr>
