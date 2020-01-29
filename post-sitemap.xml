@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>https://l20.github.io/blog/article/%E4%B9%90%E7%90%86%E7%AC%94%E8%AE%B03/</loc>
+        <lastmod>2020-01-29T13:53:27.136Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://l20.github.io/blog/article/%E4%B9%90%E7%90%86%E7%AC%94%E8%AE%B02/</loc>
+        <lastmod>2020-01-29T13:53:27.136Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://l20.github.io/blog/article/GarageBand%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
-        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
+        <lastmod>2020-01-29T13:53:27.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,7 +32,7 @@
 
     <url>
         <loc>https://l20.github.io/blog/article/%E4%B9%90%E7%90%86%E7%AC%94%E8%AE%B01/</loc>
-        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
+        <lastmod>2020-01-29T13:53:27.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -24,7 +40,7 @@
 
     <url>
         <loc>https://l20.github.io/blog/casper/2017-05-17-nginx-config/</loc>
-        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
+        <lastmod>2020-01-29T13:53:27.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -32,7 +48,7 @@
 
     <url>
         <loc>https://l20.github.io/blog/casper/2017-05-22-vue-cli/</loc>
-        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
+        <lastmod>2020-01-29T13:53:27.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -40,7 +56,7 @@
 
     <url>
         <loc>https://l20.github.io/blog/casper/2017-05-17-nginx-1/</loc>
-        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
+        <lastmod>2020-01-29T13:53:27.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -48,7 +64,7 @@
 
     <url>
         <loc>https://l20.github.io/blog/casper/2017-05-17-nginx-2/</loc>
-        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
+        <lastmod>2020-01-29T13:53:27.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -56,7 +72,7 @@
 
     <url>
         <loc>https://l20.github.io/blog/casper/2017-05-16-music/</loc>
-        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
+        <lastmod>2020-01-29T13:53:27.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -64,7 +80,7 @@
 
     <url>
         <loc>https://l20.github.io/blog/casper/2017-06-05-test-yunxiao/</loc>
-        <lastmod>2020-01-28T11:57:38.764Z</lastmod>
+        <lastmod>2020-01-29T13:53:27.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
