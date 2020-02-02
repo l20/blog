@@ -8,28 +8,28 @@
     
     <url>
         <loc>https://l20.github.io/blog/tags/</loc>
-        <lastmod>2020-01-29T15:30:40.380Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://l20.github.io/blog/about/</loc>
-        <lastmod>2020-01-29T15:30:40.352Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://l20.github.io/blog/archive/</loc>
-        <lastmod>2020-01-29T15:30:40.352Z</lastmod>
+        <lastmod>2020-02-02T11:34:53.388Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://l20.github.io/blog/404.html</loc>
-        <lastmod>2020-01-29T15:30:40.348Z</lastmod>
+        <lastmod>2020-02-02T11:34:53.356Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://l20.github.io/blog/about/</loc>
+        <lastmod>2020-02-02T11:34:53.356Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://l20.github.io/blog/archive/</loc>
+        <lastmod>2020-02-02T11:34:53.356Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
